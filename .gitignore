@@ -1,5 +1,6 @@
 # Generated experiment results
 results/
+codes/enhanced_ftm
 
 # Python cache
 __pycache__/

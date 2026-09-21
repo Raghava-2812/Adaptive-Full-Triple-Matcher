@@ -19,15 +19,16 @@ from datetime import date, datetime
 from numbers import Number
 
 from rdflib import URIRef, Literal
-from rdflib.namespace import RDF
+from rdflib.namespace import RDF, RDFS
 
 
 # ============================================================
 # Configuration
 # ============================================================
 
-# Keep False for the original FTM baseline.
-USE_SEMANTIC_TYPE_MATCHING = False
+# Keep False when reproducing the original FTM baseline.
+# Set True for the first A-FTM improvement.
+USE_SEMANTIC_TYPE_MATCHING = True
 
 # Initial experimental weight.
 # This should be tuned experimentally later.
@@ -52,6 +53,7 @@ TYPE_BOOK = "book"
 TYPE_SONG = "song"
 TYPE_ALBUM = "album"
 TYPE_SERIES = "series"
+TYPE_GENRE = "genre"
 
 TYPE_NUMBER = "number"
 TYPE_DATE = "date"
@@ -146,6 +148,49 @@ SERIES_KEYWORDS = {
     "series",
     "show",
     "episode",
+}
+
+GENRE_KEYWORDS = {
+    "genre",
+    "category",
+    "action",
+    "drama",
+    "romance",
+    "romantic",
+    "thriller",
+    "scifi",
+    "sci fi",
+    "science fiction",
+    "film",
+}
+
+MOVIE_CONTEXT_PREDICATES = {
+    "title",
+    "name",
+    "director",
+    "directed by",
+    "release year",
+    "year",
+    "runtime",
+    "duration minutes",
+    "country",
+    "origin country",
+    "genre",
+    "category",
+}
+
+PERSON_CONTEXT_PREDICATES = {
+    "director",
+    "directed by",
+    "actor",
+    "cast",
+    "producer",
+    "writer",
+}
+
+GENRE_CONTEXT_PREDICATES = {
+    "genre",
+    "category",
 }
 
 
@@ -354,6 +399,9 @@ def infer_category_from_text(value):
     if tokens & SERIES_KEYWORDS:
         return TYPE_SERIES
 
+    if text in GENRE_KEYWORDS or tokens & GENRE_KEYWORDS:
+        return TYPE_GENRE
+
     # -----------------------------------------
     # Nationality suffixes
     # -----------------------------------------
@@ -464,6 +512,118 @@ def infer_category_from_rdf_type(rdf_type):
     }:
         return TYPE_SERIES
 
+    if local_name in {
+        "genre",
+        "category",
+        "filmgenre",
+    }:
+        return TYPE_GENRE
+
+    return TYPE_UNKNOWN
+
+
+# ============================================================
+# Context-aware type inference
+# ============================================================
+
+def _predicate_context_name(predicate):
+    """
+    Normalize a predicate URI local name for context rules.
+    """
+
+    return get_uri_local_name(predicate)
+
+
+def get_literal_label(value, graph=None):
+    """
+    Try to obtain a readable label for a URIRef.
+    """
+
+    if graph is None or not isinstance(value, URIRef):
+        return ""
+
+    label_predicates = (
+        RDFS.label,
+        URIRef("http://kg1.example.org/ontology/title"),
+        URIRef("http://kg1.example.org/ontology/name"),
+        URIRef("http://kg2.example.org/ontology/name"),
+        URIRef("http://kg2.example.org/ontology/fullName"),
+    )
+
+    try:
+        for predicate in label_predicates:
+            for label in graph.objects(value, predicate):
+                return normalize_text(label)
+    except Exception:
+        return ""
+
+    return ""
+
+
+def infer_category_from_context(value, graph=None, max_terms=50):
+    """
+    Infer type from neighboring triples.
+
+    This is the first A-FTM improvement: the matcher considers what an entity
+    is connected to, not only how its URI or label is written.
+    """
+
+    if graph is None or not isinstance(value, URIRef):
+        return TYPE_UNKNOWN
+
+    outgoing_predicates = set()
+    incoming_predicates = set()
+    labels = set()
+
+    try:
+        for predicate, obj in graph.predicate_objects(value):
+            outgoing_predicates.add(_predicate_context_name(predicate))
+
+            if predicate == RDFS.label:
+                labels.add(normalize_text(obj))
+
+            if len(outgoing_predicates) + len(labels) >= max_terms:
+                break
+
+        for subj, predicate in graph.subject_predicates(value):
+            incoming_predicates.add(_predicate_context_name(predicate))
+
+            if len(incoming_predicates) >= max_terms:
+                break
+
+    except Exception:
+        return TYPE_UNKNOWN
+
+    label_text = get_literal_label(value, graph=graph)
+    if label_text:
+        labels.add(label_text)
+
+    label_category_votes = [
+        infer_category_from_text(label)
+        for label in labels
+        if label
+    ]
+
+    for category in label_category_votes:
+        if category not in {TYPE_UNKNOWN, TYPE_ENTITY}:
+            return category
+
+    # Movie entities in the small KGs are described by several movie-fact
+    # predicates. Requiring at least two signals avoids treating a person with
+    # only a name as a movie.
+    movie_signals = outgoing_predicates & MOVIE_CONTEXT_PREDICATES
+    if len(movie_signals) >= 2:
+        return TYPE_MOVIE
+
+    if incoming_predicates & PERSON_CONTEXT_PREDICATES:
+        return TYPE_PERSON
+
+    if incoming_predicates & GENRE_CONTEXT_PREDICATES:
+        return TYPE_GENRE
+
+    if outgoing_predicates == {"name"} or outgoing_predicates == {"full name"}:
+        return TYPE_PERSON
+
     return TYPE_UNKNOWN
 
 
@@ -556,7 +716,19 @@ def detect_semantic_category(value, graph=None, explicit_type=None):
         return rdf_category
 
     # -----------------------------------------
-    # 3. RDFLib Literal
+    # 3. Graph neighborhood context
+    # -----------------------------------------
+
+    context_category = infer_category_from_context(
+        value,
+        graph=graph
+    )
+
+    if context_category != TYPE_UNKNOWN:
+        return context_category
+
+    # -----------------------------------------
+    # 4. RDFLib Literal
     # -----------------------------------------
 
     if isinstance(value, Literal):
@@ -578,7 +750,7 @@ def detect_semantic_category(value, graph=None, explicit_type=None):
         return infer_category_from_text(native_value)
 
     # -----------------------------------------
-    # 4. URIRef
+    # 5. URIRef
     # -----------------------------------------
 
     if isinstance(value, URIRef):
@@ -588,7 +760,7 @@ def detect_semantic_category(value, graph=None, explicit_type=None):
         )
 
     # -----------------------------------------
-    # 5. Normal Python values
+    # 6. Normal Python values
     # -----------------------------------------
 
     if isinstance(value, bool):
@@ -601,7 +773,7 @@ def detect_semantic_category(value, graph=None, explicit_type=None):
         return TYPE_DATE
 
     # -----------------------------------------
-    # 6. String fallback
+    # 7. String fallback
     # -----------------------------------------
 
     return infer_category_from_text(value)
@@ -684,6 +856,10 @@ def semantic_type_compatibility(
         # Location <-> generic entity
         (TYPE_LOCATION, TYPE_ENTITY): 0.25,
         (TYPE_ENTITY, TYPE_LOCATION): 0.25,
+
+        # Genre aliases can be modeled as entities or categories.
+        (TYPE_GENRE, TYPE_ENTITY): 0.25,
+        (TYPE_ENTITY, TYPE_GENRE): 0.25,
     }
 
     return compatible_pairs.get(

@@ -27,6 +27,18 @@ The folders are distributed as follow:
 
 The current dataset folder contains only the gold standards and the input knowledge graphs (KGs) for DW-NB and DY-NB. To use the dataset for the unsupervised method, please visit the [OAEI website](https://oaei.ontologymatching.org). Additionally, you can set up the DBpedia endpoint by following the instructions [here](https://github.com/dbpedia/virtuoso-sparql-endpoint-quickstart).
 
+## Project workflow
+
+The base Full Triple Matcher (FTM) workflow follows the paper:
+
+1. Load two heterogeneous knowledge graphs.
+2. Calculate predicate functionality and inverse functionality.
+3. Generate entity and predicate candidates from labels.
+4. Compare full triples using subject, predicate, and object evidence.
+5. Use matched triples to update entity-pair probabilities.
+6. Apply a threshold to decide compatible/divergent matches.
+7. Evaluate the output with Hit@K, precision, recall, and F1-score.
+
 Step 1: Compute Functionality and Inverse Functionality
 
 Run the following notebook to calculate the functionality and inverse functionality of each KG:
@@ -54,6 +66,55 @@ Step 3: Evaluate the Results
 The entity matching also produces the matching between triple, but you can also obtain it separately if you already have the entity pairs. To this end, run:
 
 codes/triple-matching/Calculate triple similarity.ipynb
+
+## A-FTM final-year-project improvements
+
+The folder `codes/enhanced_ftm` contains the proposed Adaptive Full Triple Matcher (A-FTM) layer from the project presentation. It keeps the original FTM notebooks unchanged and adds three importable improvement modules:
+
+- `semantic_type_transformer.py`: infers semantic type evidence from RDF type triples, graph neighborhood context, URI labels, and literals.
+- `adaptive_threshold.py`: replaces one fixed decision threshold with `T = T0 + alpha*uncertainty - beta*semantic_score`, with a small relation reliability adjustment from functionality/inverse functionality.
+- `conflict_resolution.py`: ranks conflicting options and automatically resolves only high-confidence cases.
+
+Example usage:
+
+```python
+import sys
+sys.path.insert(0, "codes")
+
+from rdflib import URIRef
+from enhanced_ftm import EnhancedFTMConfig, score_candidate
+
+decision = score_candidate(
+    base_score=0.86,
+    value_a=URIRef("http://example.org/France"),
+    value_b=URIRef("http://example.org/French"),
+    competing_scores=(0.86, 0.42),
+    functionality=0.95,
+    inverse_functionality=0.95,
+    config=EnhancedFTMConfig(
+        semantic_weight=0.10,
+        base_threshold=0.90,
+        alpha=0.08,
+        beta=0.07,
+    ),
+)
+
+print(decision.label, decision.final_score, decision.threshold)
+```
+
+To validate the enhanced modules without requiring `pytest`, run:
+
+```powershell
+python -c @'
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path.cwd() / "codes"))
+import tests.test_enhanced_ftm as t
+for name in sorted(n for n in dir(t) if n.startswith("test_")):
+    getattr(t, name)()
+    print(name, "OK")
+'@
+```
 
 # Full Triple Matcher Results
 

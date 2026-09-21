@@ -410,6 +410,10 @@ def apply_semantic_type_bonus(
     o2,
     use_semantic_type_matching=None,
     semantic_type_weight=None,
+    graph_1=None,
+    graph_2=None,
+    type_1=None,
+    type_2=None,
 ):
     """
     Apply the Semantic Type-Aware Matching improvement.
@@ -463,8 +467,12 @@ def apply_semantic_type_bonus(
     # --------------------------------------------------------
 
     semantic_bonus = get_semantic_type_bonus(
-        o1,
-        o2
+        value_a=o1,
+        value_b=o2,
+        graph_a=graph_1,
+        graph_b=graph_2,
+        type_a=type_1,
+        type_b=type_2,
     )
 
     # --------------------------------------------------------
@@ -504,6 +512,10 @@ def get_objects_similarity(
     o2,
     use_semantic_type_matching=None,
     semantic_type_weight=None,
+    graph_1=None,
+    graph_2=None,
+    type_1=None,
+    type_2=None,
 ):
     """
     Calculate similarity between two FTM objects.
@@ -521,6 +533,12 @@ def get_objects_similarity(
 
     semantic_type_weight : float, optional
         Weight assigned to semantic compatibility.
+
+    graph_1, graph_2 : rdflib.Graph, optional
+        Graph context used by the Semantic Type Transformer.
+
+    type_1, type_2 : str, optional
+        Explicit semantic type metadata when available.
 
     Returns
     -------
@@ -601,8 +619,12 @@ def get_objects_similarity(
                 base_similarity,
                 o1,
                 o2,
-                use_semantic_type_matching,
-                semantic_type_weight,
+                use_semantic_type_matching=use_semantic_type_matching,
+                semantic_type_weight=semantic_type_weight,
+                graph_1=graph_1,
+                graph_2=graph_2,
+                type_1=type_1,
+                type_2=type_2,
             )
 
     # ========================================================
@@ -632,8 +654,12 @@ def get_objects_similarity(
                 base_similarity,
                 o1,
                 o2,
-                use_semantic_type_matching,
-                semantic_type_weight,
+                use_semantic_type_matching=use_semantic_type_matching,
+                semantic_type_weight=semantic_type_weight,
+                graph_1=graph_1,
+                graph_2=graph_2,
+                type_1=type_1,
+                type_2=type_2,
             )
 
     # ========================================================
@@ -781,6 +807,10 @@ def get_objects_similarity(
         base_similarity,
         o1,
         o2,
-        use_semantic_type_matching,
-        semantic_type_weight,
+        use_semantic_type_matching=use_semantic_type_matching,
+        semantic_type_weight=semantic_type_weight,
+        graph_1=graph_1,
+        graph_2=graph_2,
+        type_1=type_1,
+        type_2=type_2,
     )
