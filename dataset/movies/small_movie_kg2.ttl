@@ -1,0 +1,83 @@
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/name> "Inception" .
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Chris_Nolan> .
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/year> "2010"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/SciFi> .
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/durationMinutes> "148"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Inception_2010> <http://kg2.example.org/ontology/originCountry> "USA" .
+
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/name> "The Dark Knight" .
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Christopher_Nolan> .
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/year> "2008"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Action_Film> .
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/durationMinutes> "152"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Dark_Knight_2008> <http://kg2.example.org/ontology/originCountry> "USA" .
+
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/name> "Interstellar" .
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Christopher_Nolan> .
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/year> "2014"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/SciFi> .
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/durationMinutes> "169"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Interstellar_2014> <http://kg2.example.org/ontology/originCountry> "United States" .
+
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/name> "Avatar" .
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/James_Cameron> .
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/year> "2009"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Science_Fiction> .
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/durationMinutes> "162"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Avatar_2009> <http://kg2.example.org/ontology/originCountry> "USA" .
+
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/name> "Titanic" .
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/James_Cameron> .
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/year> "1997"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Romantic_Drama> .
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/durationMinutes> "195"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Titanic_1997> <http://kg2.example.org/ontology/originCountry> "United States" .
+
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/name> "The Matrix" .
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Wachowski_Sisters> .
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/year> "1999"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/SciFi> .
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/durationMinutes> "136"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Matrix_1999> <http://kg2.example.org/ontology/originCountry> "USA" .
+
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/name> "Gladiator" .
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Ridley_Scott> .
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/year> "2000"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Action_Film> .
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/durationMinutes> "155"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Gladiator_2000> <http://kg2.example.org/ontology/originCountry> "United States" .
+
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/name> "Parasite" .
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Bong_Joon_Ho> .
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/year> "2019"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Thriller> .
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/durationMinutes> "132"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Parasite_2019> <http://kg2.example.org/ontology/originCountry> "Republic of Korea" .
+
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/name> "Joker" .
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Todd_Phillips> .
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/year> "2019"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Drama> .
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/durationMinutes> "122"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Joker_2019> <http://kg2.example.org/ontology/originCountry> "USA" .
+
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/name> "Oppenheimer" .
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/directedBy> <http://kg2.example.org/resource/Christopher_Nolan> .
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/year> "2023"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/category> <http://kg2.example.org/resource/Drama> .
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/durationMinutes> "180"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://kg2.example.org/resource/Oppenheimer_2023> <http://kg2.example.org/ontology/originCountry> "United States" .
+
+<http://kg2.example.org/resource/Chris_Nolan> <http://kg2.example.org/ontology/fullName> "Christopher Nolan" .
+<http://kg2.example.org/resource/Christopher_Nolan> <http://kg2.example.org/ontology/fullName> "Christopher Nolan" .
+<http://kg2.example.org/resource/James_Cameron> <http://kg2.example.org/ontology/fullName> "James Cameron" .
+<http://kg2.example.org/resource/Wachowski_Sisters> <http://kg2.example.org/ontology/fullName> "Lana and Lilly Wachowski" .
+<http://kg2.example.org/resource/Ridley_Scott> <http://kg2.example.org/ontology/fullName> "Ridley Scott" .
+<http://kg2.example.org/resource/Bong_Joon_Ho> <http://kg2.example.org/ontology/fullName> "Bong Joon Ho" .
+<http://kg2.example.org/resource/Todd_Phillips> <http://kg2.example.org/ontology/fullName> "Todd Phillips" .
+<http://kg2.example.org/resource/SciFi> <http://www.w3.org/2000/01/rdf-schema#label> "Science Fiction" .
+<http://kg2.example.org/resource/Science_Fiction> <http://www.w3.org/2000/01/rdf-schema#label> "Science Fiction" .
+<http://kg2.example.org/resource/Action_Film> <http://www.w3.org/2000/01/rdf-schema#label> "Action" .
+<http://kg2.example.org/resource/Romantic_Drama> <http://www.w3.org/2000/01/rdf-schema#label> "Romantic Drama" .
+<http://kg2.example.org/resource/Thriller> <http://www.w3.org/2000/01/rdf-schema#label> "Thriller" .
+<http://kg2.example.org/resource/Drama> <http://www.w3.org/2000/01/rdf-schema#label> "Drama" .

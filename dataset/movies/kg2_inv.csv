@@ -1,0 +1,9 @@
+predicate,functionality,inverse_functionality,inversability
+http://kg2.example.org/ontology/durationMinutes,1.0,1.0,1.0
+http://kg2.example.org/ontology/originCountry,1.0,0.3,0.3
+http://kg2.example.org/ontology/fullName,1.0,0.8571428571428571,0.8571428571428571
+http://kg2.example.org/ontology/directedBy,1.0,0.7,0.7
+http://kg2.example.org/ontology/year,1.0,0.9,0.9
+http://kg2.example.org/ontology/category,1.0,0.6,0.6
+http://www.w3.org/2000/01/rdf-schema#label,1.0,0.8333333333333334,0.8333333333333334
+http://kg2.example.org/ontology/name,1.0,1.0,1.0

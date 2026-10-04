@@ -1,0 +1,241 @@
+@prefix ex2: <http://complex-kg2.org/resource/> .
+@prefix p2:  <http://complex-kg2.org/ontology/> .
+
+# ============================================================
+# MOVIES
+# ============================================================
+
+ex2:Inception_2010
+    p2:filmTitle "Inception" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:ChristopherNolan ;
+    p2:genre ex2:SciFi ;
+    p2:year "2010" ;
+    p2:duration "148" ;
+    p2:nation ex2:USA ;
+    p2:filmingLocation ex2:LosAngeles .
+
+ex2:The_Dark_Knight_2008
+    p2:filmTitle "The Dark Knight" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:ChrisNolan ;
+    p2:genre ex2:ActionFilm ;
+    p2:year "2008" ;
+    p2:duration "152" ;
+    p2:nation ex2:UnitedStates ;
+    p2:filmingLocation ex2:Chicago .
+
+ex2:Interstellar_2014
+    p2:filmTitle "Interstellar" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:ChristopherNolan ;
+    p2:genre ex2:ScienceFiction ;
+    p2:year "2014" ;
+    p2:duration "169" ;
+    p2:nation ex2:USA ;
+    p2:filmingLocation ex2:LosAngeles .
+
+ex2:Avatar_2009
+    p2:filmTitle "Avatar" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:JamesCameron ;
+    p2:genre ex2:ScienceFiction ;
+    p2:year "2009" ;
+    p2:duration "162" ;
+    p2:nation ex2:UnitedStates ;
+    p2:filmingLocation ex2:WellingtonNZ .
+
+ex2:Titanic_1997
+    p2:filmTitle "Titanic" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:James_Cameron ;
+    p2:genre ex2:RomanticDrama ;
+    p2:year "1997" ;
+    p2:duration "195" ;
+    p2:nation ex2:USA ;
+    p2:filmingLocation ex2:LosAngeles .
+
+ex2:Oppenheimer_2023
+    p2:filmTitle "Oppenheimer" ;
+    p2:category ex2:CinemaFilm ;
+    p2:directedBy ex2:Nolan_Christopher ;
+    p2:genre ex2:DramaFilm ;
+    p2:year "2023" ;
+    p2:duration "180" ;
+    p2:nation ex2:UnitedStates ;
+    p2:filmingLocation ex2:PrincetonNJ .
+
+ex2:Dunkirk_2017
+    p2:filmTitle "Dunkirk" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:ChristopherNolan ;
+    p2:genre ex2:WarFilm ;
+    p2:year "2017" ;
+    p2:duration "106" ;
+    p2:nation ex2:UK ;
+    p2:filmingLocation ex2:DunkirkFrance .
+
+ex2:Tenet_2020
+    p2:filmTitle "Tenet" ;
+    p2:category ex2:Film ;
+    p2:directedBy ex2:Nolan ;
+    p2:genre ex2:SciFi ;
+    p2:year "2020" ;
+    p2:duration "150" ;
+    p2:nation ex2:UnitedKingdom ;
+    p2:filmingLocation ex2:LondonUK .
+
+# ============================================================
+# PEOPLE
+# ============================================================
+
+ex2:ChristopherNolan
+    p2:fullName "Christopher Nolan" ;
+    p2:category ex2:FilmDirector ;
+    p2:birthPlace ex2:LondonUK ;
+    p2:citizenship ex2:British .
+
+ex2:ChrisNolan
+    p2:fullName "Chris Nolan" ;
+    p2:category ex2:Director ;
+    p2:birthPlace ex2:LondonUK ;
+    p2:citizenship ex2:British .
+
+ex2:Nolan_Christopher
+    p2:fullName "Christopher Nolan" ;
+    p2:category ex2:MovieDirector ;
+    p2:birthPlace ex2:LondonUK .
+
+ex2:JamesCameron
+    p2:fullName "James Cameron" ;
+    p2:category ex2:FilmDirector ;
+    p2:birthPlace ex2:KapuskasingCanada ;
+    p2:citizenship ex2:Canadian .
+
+ex2:TomHardy
+    p2:fullName "Tom Hardy" ;
+    p2:category ex2:Actor ;
+    p2:birthPlace ex2:LondonUK ;
+    p2:citizenship ex2:British .
+
+ex2:LeonardoDiCaprio
+    p2:fullName "Leonardo DiCaprio" ;
+    p2:category ex2:Actor ;
+    p2:birthPlace ex2:LosAngeles ;
+    p2:citizenship ex2:American .
+
+ex2:ChristianBale
+    p2:fullName "Christian Bale" ;
+    p2:category ex2:Actor ;
+    p2:birthPlace ex2:HaverfordwestUK ;
+    p2:citizenship ex2:British .
+
+# Deliberate distractor with same name as director
+ex2:ChristopherNolanActor
+    p2:fullName "Christopher Nolan" ;
+    p2:category ex2:Actor ;
+    p2:birthPlace ex2:LondonUK .
+
+# ============================================================
+# GENRES
+# ============================================================
+
+ex2:SciFi
+    p2:name "Sci-Fi" ;
+    p2:category ex2:FilmGenre .
+
+ex2:ScienceFiction
+    p2:name "Science Fiction" ;
+    p2:category ex2:FilmGenre .
+
+ex2:ActionFilm
+    p2:name "Action Film" ;
+    p2:category ex2:Genre .
+
+ex2:RomanticDrama
+    p2:name "Romantic Drama" ;
+    p2:category ex2:FilmGenre .
+
+ex2:DramaFilm
+    p2:name "Drama Film" ;
+    p2:category ex2:Genre .
+
+ex2:WarFilm
+    p2:name "War Film" ;
+    p2:category ex2:FilmGenre .
+
+# ============================================================
+# LOCATIONS
+# ============================================================
+
+ex2:LosAngeles
+    p2:name "Los Angeles" ;
+    p2:category ex2:City ;
+    p2:nation ex2:USA .
+
+ex2:LondonUK
+    p2:name "London" ;
+    p2:category ex2:City ;
+    p2:nation ex2:UK .
+
+ex2:Chicago
+    p2:name "Chicago" ;
+    p2:category ex2:City ;
+    p2:nation ex2:USA .
+
+ex2:WellingtonNZ
+    p2:name "Wellington" ;
+    p2:category ex2:City ;
+    p2:nation ex2:NewZealand .
+
+ex2:PrincetonNJ
+    p2:name "Princeton" ;
+    p2:category ex2:Town ;
+    p2:nation ex2:USA .
+
+ex2:DunkirkFrance
+    p2:name "Dunkirk" ;
+    p2:category ex2:City ;
+    p2:nation ex2:France .
+
+ex2:KapuskasingCanada
+    p2:name "Kapuskasing" ;
+    p2:category ex2:City ;
+    p2:nation ex2:Canada .
+
+ex2:HaverfordwestUK
+    p2:name "Haverfordwest" ;
+    p2:category ex2:City ;
+    p2:nation ex2:UK .
+
+# ============================================================
+# COUNTRIES
+# ============================================================
+
+ex2:USA
+    p2:name "USA" ;
+    p2:category ex2:Country .
+
+ex2:UnitedStates
+    p2:name "United States" ;
+    p2:category ex2:Nation .
+
+ex2:UK
+    p2:name "United Kingdom" ;
+    p2:category ex2:Country .
+
+ex2:UnitedKingdom
+    p2:name "United Kingdom" ;
+    p2:category ex2:Nation .
+
+ex2:Canada
+    p2:name "Canada" ;
+    p2:category ex2:Country .
+
+ex2:NewZealand
+    p2:name "New Zealand" ;
+    p2:category ex2:Country .
+
+ex2:France
+    p2:name "France" ;
+    p2:category ex2:Country .

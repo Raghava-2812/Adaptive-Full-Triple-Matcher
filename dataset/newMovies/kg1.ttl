@@ -1,0 +1,221 @@
+@prefix ex1: <http://complex-kg1.org/resource/> .
+@prefix p1:  <http://complex-kg1.org/ontology/> .
+
+# ============================================================
+# MOVIES
+# ============================================================
+
+ex1:Inception
+    p1:title "Inception" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:Science_Fiction ;
+    p1:releaseYear "2010" ;
+    p1:runtime "148" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Los_Angeles .
+
+ex1:The_Dark_Knight
+    p1:title "The Dark Knight" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:Action ;
+    p1:releaseYear "2008" ;
+    p1:runtime "152" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Chicago .
+
+ex1:Interstellar
+    p1:title "Interstellar" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:Science_Fiction ;
+    p1:releaseYear "2014" ;
+    p1:runtime "169" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Los_Angeles .
+
+ex1:Avatar
+    p1:title "Avatar" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:James_Cameron ;
+    p1:genre ex1:Science_Fiction ;
+    p1:releaseYear "2009" ;
+    p1:runtime "162" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Wellington .
+
+ex1:Titanic
+    p1:title "Titanic" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:James_Cameron ;
+    p1:genre ex1:Romance ;
+    p1:releaseYear "1997" ;
+    p1:runtime "195" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Los_Angeles .
+
+ex1:Oppenheimer
+    p1:title "Oppenheimer" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:Drama ;
+    p1:releaseYear "2023" ;
+    p1:runtime "180" ;
+    p1:country ex1:United_States ;
+    p1:city ex1:Princeton .
+
+ex1:Dunkirk
+    p1:title "Dunkirk" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:War ;
+    p1:releaseYear "2017" ;
+    p1:runtime "106" ;
+    p1:country ex1:United_Kingdom ;
+    p1:city ex1:Dunkirk .
+
+ex1:Tenet
+    p1:title "Tenet" ;
+    p1:type ex1:Movie ;
+    p1:director ex1:Christopher_Nolan ;
+    p1:genre ex1:Science_Fiction ;
+    p1:releaseYear "2020" ;
+    p1:runtime "150" ;
+    p1:country ex1:United_Kingdom ;
+    p1:city ex1:London .
+
+# ============================================================
+# PEOPLE
+# ============================================================
+
+ex1:Christopher_Nolan
+    p1:name "Christopher Nolan" ;
+    p1:type ex1:Director ;
+    p1:bornIn ex1:London ;
+    p1:nationality ex1:British .
+
+ex1:James_Cameron
+    p1:name "James Cameron" ;
+    p1:type ex1:Director ;
+    p1:bornIn ex1:Kapuskasing ;
+    p1:nationality ex1:Canadian .
+
+ex1:Christopher_Nolan_Actor
+    p1:name "Christopher Nolan" ;
+    p1:type ex1:Actor ;
+    p1:bornIn ex1:London .
+
+ex1:Tom_Hardy
+    p1:name "Tom Hardy" ;
+    p1:type ex1:Actor ;
+    p1:bornIn ex1:London ;
+    p1:nationality ex1:British .
+
+ex1:Leonardo_DiCaprio
+    p1:name "Leonardo DiCaprio" ;
+    p1:type ex1:Actor ;
+    p1:bornIn ex1:Los_Angeles ;
+    p1:nationality ex1:American .
+
+ex1:Christian_Bale
+    p1:name "Christian Bale" ;
+    p1:type ex1:Actor ;
+    p1:bornIn ex1:Haverfordwest ;
+    p1:nationality ex1:British .
+
+# ============================================================
+# GENRES
+# ============================================================
+
+ex1:Science_Fiction
+    p1:name "Science Fiction" ;
+    p1:type ex1:Genre .
+
+ex1:SciFi
+    p1:name "Sci-Fi" ;
+    p1:type ex1:Genre .
+
+ex1:Action
+    p1:name "Action" ;
+    p1:type ex1:Genre .
+
+ex1:Romance
+    p1:name "Romance" ;
+    p1:type ex1:Genre .
+
+ex1:Drama
+    p1:name "Drama" ;
+    p1:type ex1:Genre .
+
+ex1:War
+    p1:name "War" ;
+    p1:type ex1:Genre .
+
+# ============================================================
+# LOCATIONS
+# ============================================================
+
+ex1:Los_Angeles
+    p1:name "Los Angeles" ;
+    p1:type ex1:City ;
+    p1:country ex1:United_States .
+
+ex1:London
+    p1:name "London" ;
+    p1:type ex1:City ;
+    p1:country ex1:United_Kingdom .
+
+ex1:Chicago
+    p1:name "Chicago" ;
+    p1:type ex1:City ;
+    p1:country ex1:United_States .
+
+ex1:Wellington
+    p1:name "Wellington" ;
+    p1:type ex1:City ;
+    p1:country ex1:New_Zealand .
+
+ex1:Princeton
+    p1:name "Princeton" ;
+    p1:type ex1:City ;
+    p1:country ex1:United_States .
+
+ex1:Dunkirk
+    p1:name "Dunkirk" ;
+    p1:type ex1:City ;
+    p1:country ex1:France .
+
+ex1:Kapuskasing
+    p1:name "Kapuskasing" ;
+    p1:type ex1:City ;
+    p1:country ex1:Canada .
+
+ex1:Haverfordwest
+    p1:name "Haverfordwest" ;
+    p1:type ex1:City ;
+    p1:country ex1:United_Kingdom .
+
+# ============================================================
+# COUNTRIES
+# ============================================================
+
+ex1:United_States
+    p1:name "United States" ;
+    p1:type ex1:Country .
+
+ex1:United_Kingdom
+    p1:name "United Kingdom" ;
+    p1:type ex1:Country .
+
+ex1:Canada
+    p1:name "Canada" ;
+    p1:type ex1:Country .
+
+ex1:New_Zealand
+    p1:name "New Zealand" ;
+    p1:type ex1:Country .
+
+ex1:France
+    p1:name "France" ;
+    p1:type ex1:Country .

@@ -1,0 +1,13 @@
+predicate,functionality,inverse_functionality,inversability
+http://complex-kg2.org/ontology/duration,1.0,1.0,1.0
+http://complex-kg2.org/ontology/filmTitle,1.0,1.0,1.0
+http://complex-kg2.org/ontology/year,1.0,1.0,1.0
+http://complex-kg2.org/ontology/name,1.0,0.9524,0.9524
+http://complex-kg2.org/ontology/fullName,1.0,0.75,0.75
+http://complex-kg2.org/ontology/directedBy,1.0,0.75,0.75
+http://complex-kg2.org/ontology/genre,1.0,0.75,0.75
+http://complex-kg2.org/ontology/filmingLocation,1.0,0.75,0.75
+http://complex-kg2.org/ontology/birthPlace,1.0,0.5,0.5
+http://complex-kg2.org/ontology/citizenship,1.0,0.5,0.5
+http://complex-kg2.org/ontology/nation,1.0,0.4375,0.4375
+http://complex-kg2.org/ontology/category,1.0,0.3243,0.3243

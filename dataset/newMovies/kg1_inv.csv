@@ -1,0 +1,12 @@
+predicate,functionality,inverse_functionality,inversability
+http://complex-kg1.org/ontology/runtime,1.0,1.0,1.0
+http://complex-kg1.org/ontology/releaseYear,1.0,1.0,1.0
+http://complex-kg1.org/ontology/title,1.0,1.0,1.0
+http://complex-kg1.org/ontology/name,1.0,0.96,0.96
+http://complex-kg1.org/ontology/city,1.0,0.75,0.75
+http://complex-kg1.org/ontology/bornIn,1.0,0.6667,0.6667
+http://complex-kg1.org/ontology/genre,1.0,0.625,0.625
+http://complex-kg1.org/ontology/nationality,1.0,0.6,0.6
+http://complex-kg1.org/ontology/country,0.9375,0.3125,0.293
+http://complex-kg1.org/ontology/director,1.0,0.25,0.25
+http://complex-kg1.org/ontology/type,0.9697,0.1818,0.1763
